@@ -1,0 +1,7 @@
+D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\bin\Debug\BENZIN 1.0.exe
+D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\bin\Debug\BENZIN 1.0.pdb
+D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.Form1.resources
+D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.Properties.Resources.resources
+D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csproj.GenerateResource.Cache
+D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.exe
+D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.pdb
