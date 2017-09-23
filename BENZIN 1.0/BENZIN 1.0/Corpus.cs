@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BENZIN_1._0
 {
-    class Corpus:CarComponent
+    public class Corpus:CarComponent
     {
         private int maxFuelTanks;
         private int maxRepairKits;
@@ -34,7 +34,7 @@ namespace BENZIN_1._0
         {
             return maxFuelTanks;
         }
-        public int getMaxRepairKitse()
+        public int getMaxRepairKits()
         {
             return maxRepairKits;
         }
@@ -54,6 +54,15 @@ namespace BENZIN_1._0
         public void addFuelTank()
         {
             fuelTanks++;
+        }
+
+        public void useRepairKit()
+        {
+            repairKits--;
+        }
+        public void addRepairKit()
+        {
+            repairKits++;
         }
         
     }

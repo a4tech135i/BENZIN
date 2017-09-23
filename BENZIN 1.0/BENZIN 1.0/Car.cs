@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BENZIN_1._0
 {
-    class Car
+    public class Car
     {       
 
         private Wheels wheels;
@@ -14,7 +14,8 @@ namespace BENZIN_1._0
         private int Speed;
         private int Fuel;
         private int maxFuel;
-        double money;
+        private double money;
+        private int fuelSpend;
 
         public Car(Wheels wh, Corpus corp, int ms, int maxF, double mon)
         {
@@ -25,6 +26,7 @@ namespace BENZIN_1._0
             Fuel = maxF;
             maxFuel = maxF;
             money=mon;
+            fuelSpend = 2 + wheels.getFuelSpend() + corpus.getFuelSpend();
         }
 
         public Car(Wheels wh, Corpus corp, int ms, int maxF, int f, double mon)
@@ -53,6 +55,10 @@ namespace BENZIN_1._0
         public int getFuel()
         {
             return Fuel;
+        }
+        public double getMoney()
+        {
+            return money;
         }
 
         public Wheels getWheels()
@@ -83,20 +89,56 @@ namespace BENZIN_1._0
         public void repairWheelsFromKit()
         {
             wheels.repair(30);
+            corpus.useRepairKit();
         }
 
-        public void corpusWheels()
+        public void repairCorpus()
         {
             corpus.repair();
         }
         public void repairCorpusFromKit()
         {
             corpus.repair(30);
+            corpus.useRepairKit();
         }
 
         public void move()
         {
+            Random RNGJeesus = new Random();
+            int threshold = 25;
+            if (RNGJeesus.Next(100) < threshold)
+            {
+                wheels.damage();
+                if (RNGJeesus.Next(100) < 10) wheels.damage(RNGJeesus.Next(75));
+                
+            }
+            if (RNGJeesus.Next(100) < threshold - 15)
+            {
+                corpus.damage();
+                if (RNGJeesus.Next(100) < 5) corpus.damage(RNGJeesus.Next(75));
+            }
+            Fuel -= fuelSpend;
+            money += 0.1;
+        }
 
+        public void buyFuelTank()
+        {
+            if (corpus.getFuelTanks() < corpus.getMaxFuelTanks())
+            {
+                money -= 10;
+                corpus.addFuelTank();
+            }
+            else throw new Exception("noPlaceForTank");
+        }
+
+        public void buyRepairKit()
+        {
+            if (corpus.getRepairKits() < corpus.getMaxRepairKits())
+            {
+                money -= 10;
+                corpus.addRepairKit();
+            }
+            else throw new Exception("noPlaceForKit");
         }
 
     }

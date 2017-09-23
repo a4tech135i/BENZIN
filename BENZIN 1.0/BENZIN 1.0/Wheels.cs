@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BENZIN_1._0
 {
-    class Wheels : CarComponent
+    public class Wheels : CarComponent
     {
         int tireFullness;
         int tireResistance;

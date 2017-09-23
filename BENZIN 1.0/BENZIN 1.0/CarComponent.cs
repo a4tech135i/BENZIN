@@ -5,14 +5,14 @@ using System.Text;
 
 namespace BENZIN_1._0
 {
-    abstract class CarComponent
+    abstract public class CarComponent
     {
         protected string name;
-        protected double HP;
+        protected int HP;
         protected int fuelSpend;
-        protected double resistance;
+        protected int resistance;
 
-        public CarComponent(string nam, int hp, int fs, double res)
+        public CarComponent(string nam, int hp, int fs, int res)
         {
             name = nam;
             HP = hp;
@@ -25,7 +25,7 @@ namespace BENZIN_1._0
             return name;
         }
 
-        public double getHP()
+        public int getHP()
         {
             return HP;
         }
@@ -35,7 +35,7 @@ namespace BENZIN_1._0
             return fuelSpend;
         }
 
-        public void damage(double damage)
+        public void damage(int damage)
         {
             HP -= damage - resistance * 10;
         }
