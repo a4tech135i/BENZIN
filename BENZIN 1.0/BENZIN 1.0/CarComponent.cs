@@ -8,11 +8,11 @@ namespace BENZIN_1._0
     abstract class CarComponent
     {
         protected string name;
-        protected int HP;
+        protected double HP;
         protected int fuelSpend;
-        protected int resistance;
+        protected double resistance;
 
-        public CarComponent(string nam, int hp, int fs, int res)
+        public CarComponent(string nam, int hp, int fs, double res)
         {
             name = nam;
             HP = hp;
@@ -25,7 +25,7 @@ namespace BENZIN_1._0
             return name;
         }
 
-        public int getHP()
+        public double getHP()
         {
             return HP;
         }
@@ -35,14 +35,23 @@ namespace BENZIN_1._0
             return fuelSpend;
         }
 
-        public void damage(int damage)
+        public void damage(double damage)
         {
             HP -= damage - resistance * 10;
         }
-
         public void damage()
         {
             HP -= 10 - resistance;
+        }
+
+        public void repair()
+        {
+            HP = 100;
+        }
+        public void repair(int amount)
+        {
+            HP += amount;
+            if (HP > 100) HP = 100;
         }
     }
 }

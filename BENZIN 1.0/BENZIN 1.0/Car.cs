@@ -69,16 +69,34 @@ namespace BENZIN_1._0
         {
             Fuel = maxFuel;
         }
-
         public void refuelFromTank()
         {
             Fuel += 30;
             if (Fuel > maxFuel) Fuel = maxFuel;
             corpus.useFuelTank();
         }
+
         public void repairWheels()
         {
-            
+            wheels.repair();
+        }
+        public void repairWheelsFromKit()
+        {
+            wheels.repair(30);
+        }
+
+        public void corpusWheels()
+        {
+            corpus.repair();
+        }
+        public void repairCorpusFromKit()
+        {
+            corpus.repair(30);
+        }
+
+        public void move()
+        {
+
         }
 
     }
