@@ -35,13 +35,19 @@ namespace BENZIN_1._0
             return fuelSpend;
         }
 
-        public void damage(int damage)
+        public int damage(int damage)
         {
-            HP -= damage - resistance * 10;
+            int dmg=Math.Abs(damage - resistance * 10);
+            HP -= dmg;
+            if (HP < 0) HP = 0;
+            return dmg;
         }
-        public void damage()
+        public int damage()
         {
-            HP -= 10 - resistance;
+            int dmg = 10 - resistance;
+            HP -= dmg;
+            if (HP < 0) HP = 0;
+            return dmg;
         }
 
         public void repair()
@@ -51,7 +57,7 @@ namespace BENZIN_1._0
         public void repair(int amount)
         {
             HP += amount;
-            if (HP > 100) HP = 100;
+            if (HP >= 100) HP = 100;
         }
     }
 }

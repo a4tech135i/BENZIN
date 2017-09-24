@@ -38,6 +38,7 @@ namespace BENZIN_1._0
             Fuel = f;
             maxFuel = maxF;
             money=mon;
+            fuelSpend = 2 + wheels.getFuelSpend() + corpus.getFuelSpend();
         }
 
         public int getMaxSpeed()
@@ -102,23 +103,46 @@ namespace BENZIN_1._0
             corpus.useRepairKit();
         }
 
-        public void move()
+        public int speedUp()
         {
+            Speed += 10;
+            if (Speed > maxSpeed) Speed = maxSpeed;
+            return Speed;
+        }
+        public int speedDown()
+        {
+            Speed -= 10;
+            if (Speed < 0) Speed = 0;
+            return Speed;
+        }
+        public int stop()
+        {
+            Speed = 0;
+            return 0;
+        }
+
+        public int[] move()
+        {
+            int[] results=new int[4];
+            for (int i = 0; i < 4; i++) results[i] = 0;
+
             Random RNGJeesus = new Random();
             int threshold = 25;
             if (RNGJeesus.Next(100) < threshold)
             {
-                wheels.damage();
-                if (RNGJeesus.Next(100) < 10) wheels.damage(RNGJeesus.Next(75));
+                results[0]=wheels.damage();
+                if (RNGJeesus.Next(100) < 10) results[1]=wheels.damage(RNGJeesus.Next(75));
                 
             }
             if (RNGJeesus.Next(100) < threshold - 15)
             {
-                corpus.damage();
-                if (RNGJeesus.Next(100) < 5) corpus.damage(RNGJeesus.Next(75));
+                results[2]=corpus.damage();
+                if (RNGJeesus.Next(100) < 5) results[3]=corpus.damage(RNGJeesus.Next(75));
             }
             Fuel -= fuelSpend;
-            money += 0.1;
+            if (Fuel < 0) Fuel = 0;
+            money += 0.9;
+            return results;
         }
 
         public void buyFuelTank()
