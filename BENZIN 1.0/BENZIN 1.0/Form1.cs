@@ -15,14 +15,18 @@ namespace BENZIN_1._0
     public partial class Form1 : Form
     {
         public Car vehicle;
+        public Save save;
         bool runing,broke;
 
-        public Form1()
+        public Form1(Save save1, Car vehicle1)
         {
             InitializeComponent();
-            Wheels wh = new Wheels("deloren", 100, 1, 4, 100, 85);
-            Corpus corp = new Corpus("deloren", 100, 1, 6, 5, 5);
-            vehicle = new Car(wh,corp,177,100,100);
+            save = save1;
+            vehicle = vehicle1;
+            this.Text = "Назва сейву: " + save.getName() + " Складність: " + save.getComplexity();
+            //Wheels wh = new Wheels("deloren", 100, 1, 4, 100, 85);
+            //Corpus corp = new Corpus("deloren", 100, 1, 6, 5, 5);
+            //vehicle = new Car(wh,corp,177,100,100);
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
         }
 

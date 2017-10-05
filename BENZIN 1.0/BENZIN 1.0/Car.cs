@@ -6,8 +6,7 @@ using System.Text;
 namespace BENZIN_1._0
 {
     public class Car
-    {       
-
+    {                
         private Wheels wheels;
         private Corpus corpus;
         private int maxSpeed;
@@ -19,6 +18,7 @@ namespace BENZIN_1._0
 
         public Car(Wheels wh, Corpus corp, int ms, int maxF, double mon)
         {
+
             wheels = wh;
             corpus = corp;
             maxSpeed = ms;
@@ -40,7 +40,6 @@ namespace BENZIN_1._0
             money=mon;
             fuelSpend = 2 + wheels.getFuelSpend() + corpus.getFuelSpend();
         }
-
         public int getMaxSpeed()
         {
             return maxSpeed;

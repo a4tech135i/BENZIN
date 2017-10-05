@@ -13,3 +13,13 @@ D:\Viktor\-= Навчання =-\4_kurs\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Deb
 D:\Viktor\-= Навчання =-\4_kurs\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csproj.GenerateResource.Cache
 D:\Viktor\-= Навчання =-\4_kurs\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.Form1.resources
 D:\Viktor\-= Навчання =-\4_kurs\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csprojResolveAssemblyReference.cache
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.exe
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.pdb
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\bin\Debug\BENZIN 1.0.exe
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\bin\Debug\BENZIN 1.0.pdb
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.Form1.resources
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.Properties.Resources.resources
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csproj.GenerateResource.Cache
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.main_menu.resources
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.start_game.resources
+C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csprojResolveAssemblyReference.cache
