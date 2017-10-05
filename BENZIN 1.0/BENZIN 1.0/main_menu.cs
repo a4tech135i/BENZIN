@@ -11,6 +11,7 @@ namespace BENZIN_1._0
 {
     public partial class main_menu : Form
     {
+
         public main_menu()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace BENZIN_1._0
 
         private void button1_Click(object sender, EventArgs e)
         {
-            start_game mf = new start_game();
+            start_game mf = new start_game(this);
             this.Hide();
             mf.ShowDialog();
         }

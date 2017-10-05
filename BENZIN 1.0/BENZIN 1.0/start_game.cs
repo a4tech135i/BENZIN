@@ -18,10 +18,18 @@ namespace BENZIN_1._0
         double cost_ben = 20;
         int kilk_kanistr=0;
         int kilk_instrumentiv=0;
-        public start_game()
+        main_menu menu;
+
+        public start_game(main_menu mn)
         {
             InitializeComponent();
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
+            menu = mn;
+        }
+        public void closeAll()
+        {
+            menu.Close();
+            this.Close();
         }
 
         private void start_game_Load(object sender, EventArgs e)
@@ -63,7 +71,7 @@ namespace BENZIN_1._0
 
                 Save save = new Save(name_save, complexity);
 
-                Form1 f1 = new Form1(save, vehicle);
+                Form1 f1 = new Form1(save, vehicle, this);
                 this.Hide();
                 f1.ShowDialog();
             }

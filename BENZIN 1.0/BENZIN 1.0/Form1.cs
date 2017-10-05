@@ -17,8 +17,10 @@ namespace BENZIN_1._0
         public Car vehicle;
         public Save save;
         bool runing,broke;
+        main_menu menu;
+        start_game start;
 
-        public Form1(Save save1, Car vehicle1)
+        public Form1(Save save1, Car vehicle1, start_game strt)
         {
             InitializeComponent();
             save = save1;
@@ -28,6 +30,7 @@ namespace BENZIN_1._0
             //Corpus corp = new Corpus("deloren", 100, 1, 6, 5, 5);
             //vehicle = new Car(wh,corp,177,100,100);
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
+            start = strt;
         }
 
         private void playSound(string path)
@@ -268,6 +271,11 @@ namespace BENZIN_1._0
                 label10.Text = "Каністр:" + vehicle.getCorpus().getFuelTanks();                
             }
             else logging("У вас немає каністр з бензином!");
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            start.closeAll();
         }
 
     }
