@@ -21,6 +21,7 @@ namespace BENZIN_1._0
         public start_game()
         {
             InitializeComponent();
+            label4.Text = "0";
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
         }
 
@@ -39,10 +40,65 @@ namespace BENZIN_1._0
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0) { label3.Text = "500$"; sloj = 500; dengi = 500; cost_ben = 20; cost_rep = 30; kilk_instrumentiv = 0; kilk_kanistr = 0; label11.Text = "Кількість стартовий каністр(" + cost_ben + "$):"; label13.Text = "Кількість стартових інструментів(:" + cost_rep + "$):"; }
-            else if (comboBox1.SelectedIndex == 1) { label3.Text = "400$"; sloj = 400; dengi = 400; cost_ben = 25; cost_rep = 35; kilk_instrumentiv = 0; kilk_kanistr = 0; label11.Text = "Кількість стартовий каністр(" + cost_ben + "$):"; label13.Text = "Кількість стартових інструментів(:" + cost_rep + "$):"; }
-            else if (comboBox1.SelectedIndex == 2) { label3.Text = "300$"; sloj = 300; dengi = 300; cost_ben = 30; cost_rep = 40; kilk_instrumentiv = 0; kilk_kanistr = 0; label11.Text = "Кількість стартовий каністр(" + cost_ben + "$):"; label13.Text = "Кількість стартових інструментів(:" + cost_rep + "$):"; }
-            else { label3.Text = "0$"; dengi = 0; sloj = 0; cost_ben = 600; cost_rep = 600; kilk_instrumentiv = 0; kilk_kanistr = 0; label11.Text = "Кількість стартовий каністр(" + cost_ben + "$):"; label13.Text = "Кількість стартових інструментів(:" + cost_rep + "$):"; }
+            if (comboBox1.SelectedIndex == 0) 
+            { 
+                label3.Text = "500$"; 
+                sloj = 500; dengi = 500; 
+                cost_ben = 20; 
+                cost_rep = 30; 
+                kilk_instrumentiv = 0; 
+                kilk_kanistr = 0;
+                label4.Text = "0";
+                label14.Text = "0";
+                label15.Text = "0";
+                label11.Text = "Кількість стартовий каністр(" + cost_ben + "$):"; 
+                label13.Text = "Кількість стартових інструментів(:" + cost_rep + "$):"; 
+            }
+            else if (comboBox1.SelectedIndex == 1) 
+            { 
+                label3.Text = "400$"; 
+                sloj = 400; 
+                dengi = 400; 
+                cost_ben = 25; 
+                cost_rep = 35; 
+                kilk_instrumentiv = 0; 
+                kilk_kanistr = 0;
+                label4.Text = "0";
+                label14.Text = "0";
+                label15.Text = "0";
+                label11.Text = "Кількість стартовий каністр(" + cost_ben + "$):"; 
+                label13.Text = "Кількість стартових інструментів(:" + cost_rep + "$):"; 
+            }
+            else if (comboBox1.SelectedIndex == 2) 
+            { 
+                label3.Text = "300$"; 
+                sloj = 300; 
+                dengi = 300; 
+                cost_ben = 30; 
+                cost_rep = 40; 
+                kilk_instrumentiv = 0; 
+                kilk_kanistr = 0;
+                label4.Text = "0";
+                label14.Text = "0";
+                label15.Text = "0";
+                label11.Text = "Кількість стартовий каністр(" + cost_ben + "$):"; 
+                label13.Text = "Кількість стартових інструментів(:" + cost_rep + "$):"; 
+            }
+            else 
+            {
+                label3.Text = "0$";
+                dengi = 0; 
+                sloj = 0; 
+                cost_ben = 600; 
+                cost_rep = 600; 
+                kilk_instrumentiv = 0; 
+                kilk_kanistr = 0;
+                label4.Text = "0";
+                label14.Text = "0";
+                label15.Text = "0";
+                label11.Text = "Кількість стартовий каністр(" + cost_ben + "$):"; 
+                label13.Text = "Кількість стартових інструментів(:" + cost_rep + "$):"; 
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
