@@ -16,8 +16,9 @@ namespace BENZIN_1._0
     {
         public Car vehicle;
         public Save save;
+        bool stance;
         bool runing,broke;
-        main_menu menu;
+        //main_menu menu;
         start_game start;
 
         public Form1(Save save1, Car vehicle1, start_game strt)
@@ -29,8 +30,11 @@ namespace BENZIN_1._0
             //Wheels wh = new Wheels("deloren", 100, 1, 4, 100, 85);
             //Corpus corp = new Corpus("deloren", 100, 1, 6, 5, 5);
             //vehicle = new Car(wh,corp,177,100,100);
+            
+
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
             start = strt;
+            stance = false;
         }
 
         private void playSound(string path)
@@ -59,6 +63,10 @@ namespace BENZIN_1._0
 
             runing = false;
             broke = false;
+
+            label11.Visible = false;
+            label12.Visible = false;
+
             label1.Text = "Корпус:";
             label4.Text = "Колеса:";
             label6.Text = "Паливо:";
@@ -73,6 +81,9 @@ namespace BENZIN_1._0
 
             label9.Text = "Ремонтних наборів:" + vehicle.getCorpus().getRepairKits();
             label10.Text = "Каністр:" + vehicle.getCorpus().getFuelTanks();
+
+            label11.Text = "Вартість:10$";
+            label12.Text = "Вартість:10$";
             
 
             button1.Text = "";
@@ -106,40 +117,43 @@ namespace BENZIN_1._0
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (broke && vehicle.getFuel()!=0) logging("Ваша машина зламана і не може продовжувати рух.");
-            else if (broke && vehicle.getFuel() == 0) logging("Ваш паливний бак порожній і ви не можете продовжувати рух.");
-            else
+            if (!stance)
             {
+                if (broke && vehicle.getFuel() != 0) logging("Ваша машина зламана і не може продовжувати рух.");
+                else if (broke && vehicle.getFuel() == 0) logging("Ваш паливний бак порожній і ви не можете продовжувати рух.");
+                else
+                {
 
-                if (e.KeyCode == Keys.W)
-                {
-                    if (!runing)
+                    if (e.KeyCode == Keys.W)
                     {
-                        runing = true;
-                        timer1.Start();
-                        pictureBox1.Enabled = true;
-                        
-                    }
-                    label7.Text = vehicle.speedUp().ToString() + "km/h";
-                    if(vehicle.getSpeed()!=vehicle.getMaxSpeed()) timer1.Interval -= 3;
-                }
-                else if (e.KeyCode == Keys.S)
-                {
-                    label7.Text = vehicle.speedDown().ToString() + "km/h";
-                    if (vehicle.getSpeed() == 0)
-                    {
-                        timer1.Stop();
-                        runing = false;
-                        pictureBox1.Enabled = false;                        
-                    }
-                    else timer1.Interval += 3; 
-                }
+                        if (!runing)
+                        {
+                            runing = true;
+                            timer1.Start();
+                            pictureBox1.Enabled = true;
 
-                else if(e.KeyCode == Keys.E)
-                {
-                    //System.Media.SystemSounds.Beep.Play();
+                        }
+                        label7.Text = vehicle.speedUp().ToString() + "km/h";
+                        if (vehicle.getSpeed() != vehicle.getMaxSpeed()) timer1.Interval -= 3;
+                    }
+                    else if (e.KeyCode == Keys.S)
+                    {
+                        label7.Text = vehicle.speedDown().ToString() + "km/h";
+                        if (vehicle.getSpeed() == 0)
+                        {
+                            timer1.Stop();
+                            runing = false;
+                            pictureBox1.Enabled = false;
+                        }
+                        else timer1.Interval += 3;
+                    }
+
+                    else if (e.KeyCode == Keys.E)
+                    {
+                        //System.Media.SystemSounds.Beep.Play();
+                    }
+
                 }
-                
             }
 
         }
@@ -209,73 +223,140 @@ namespace BENZIN_1._0
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (vehicle.getCorpus().getRepairKits() != 0)
+            if (stance)
             {
-                switch (comboBox1.SelectedIndex)
+                try
                 {
-                    case 0:
-                        if (vehicle.getCorpus().getHP() == 100)
-                        {
-                            logging("Корпус не потребує ремонту!");
-                            return;
-                        }
-                        else
-                        {
-                            vehicle.getCorpus().repair(20);
-                            vehicle.getCorpus().useRepairKit();
-                            newProgressBar1.Value = vehicle.getCorpus().getHP();
-                            logging("Ви відремонтували корпус за допомогою ремонтного набору");
-                            if (broke && vehicle.getCorpus().getHP() == 0 && vehicle.getWheels().getHP() != 0 && vehicle.getFuel() != 0) broke = false;
-                            else if (broke && vehicle.getCorpus().getRepairKits() == 0) logging("Ви використали всі ремонтні набори! Ваш шлях закінчується тут...");
-                        }
-                        break;
-                    case 1:
-                        if (vehicle.getWheels().getHP() == 100)
-                        {
-                            logging("Колеса не потребують ремонту!");
-                            return;
-                        }
-                        else
-                        {
-                            vehicle.getWheels().repair(20);
-                            vehicle.getCorpus().useRepairKit();
-                            newProgressBar2.Value = vehicle.getWheels().getHP();
-                            logging("Ви відремонтували колеса за допомогою ремонтного набору");
-                            if (broke && vehicle.getWheels().getHP() != 0 && vehicle.getCorpus().getHP() != 0 && vehicle.getFuel()!=0) broke = false;
-                            else if (broke && vehicle.getCorpus().getRepairKits() == 0) logging("Ви використали всі ремонтні набори! Ваш шлях закінчується тут...");
-                        }
-                        break;
+                    vehicle.buyRepairKit();
+                    label9.Text = "Ремонтних наборів:" + vehicle.getCorpus().getRepairKits();
+                    label3.Text = vehicle.getMoney().ToString() + "$";
+                    vehicle.repairWheels();
+                    vehicle.repairCorpus();
+                    newProgressBar1.Value = vehicle.getCorpus().getHP();
+                    newProgressBar2.Value = vehicle.getWheels().getHP();
+                    logging("Ви купили ремонтний комплект. В подарунок ви отримали повний ремонт автомобіля!");
                 }
-                label9.Text = "Ремонтних наборів:" + vehicle.getCorpus().getRepairKits();                
-                
+                catch (Exception exc)
+                {
+                    if (exc.Message == "noPlaceForKit")
+                        logging("У вас немає місця для ще одного ремонтного набору");
+                }
             }
-            else logging("У вас немає ремонтних наборів!");
+            else
+            {
+                if (vehicle.getCorpus().getRepairKits() != 0)
+                {
+                    switch (comboBox1.SelectedIndex)
+                    {
+                        case 0:
+                            if (vehicle.getCorpus().getHP() == 100)
+                            {
+                                logging("Корпус не потребує ремонту!");
+                                return;
+                            }
+                            else
+                            {
+                                vehicle.getCorpus().repair(20);
+                                vehicle.getCorpus().useRepairKit();
+                                newProgressBar1.Value = vehicle.getCorpus().getHP();
+                                logging("Ви відремонтували корпус за допомогою ремонтного набору");
+                                if (broke && vehicle.getCorpus().getHP() == 0 && vehicle.getWheels().getHP() != 0 && vehicle.getFuel() != 0) broke = false;
+                                else if (broke && vehicle.getCorpus().getRepairKits() == 0) logging("Ви використали всі ремонтні набори! Ваш шлях закінчується тут...");
+                            }
+                            break;
+                        case 1:
+                            if (vehicle.getWheels().getHP() == 100)
+                            {
+                                logging("Колеса не потребують ремонту!");
+                                return;
+                            }
+                            else
+                            {
+                                vehicle.getWheels().repair(20);
+                                vehicle.getCorpus().useRepairKit();
+                                newProgressBar2.Value = vehicle.getWheels().getHP();
+                                logging("Ви відремонтували колеса за допомогою ремонтного набору");
+                                if (broke && vehicle.getWheels().getHP() != 0 && vehicle.getCorpus().getHP() != 0 && vehicle.getFuel() != 0) broke = false;
+                                else if (broke && vehicle.getCorpus().getRepairKits() == 0) logging("Ви використали всі ремонтні набори! Ваш шлях закінчується тут...");
+                            }
+                            break;
+                    }
+                    label9.Text = "Ремонтних наборів:" + vehicle.getCorpus().getRepairKits();
+
+                }
+                else logging("У вас немає ремонтних наборів!");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (vehicle.getCorpus().getFuelTanks() != 0)
+            if (stance)
             {
-                if (vehicle.getFuel() == vehicle.getMaxFuel())
+                try
                 {
-                    logging("Паливний пак повний!");
-                    return;
-                }
-                else
-                {
-                    vehicle.refuelFromTank();
+                    vehicle.buyFuelTank();
+                    label10.Text = "Каністр:" + vehicle.getCorpus().getFuelTanks();
+                    label3.Text = vehicle.getMoney().ToString() + "$";
+                    vehicle.refuel();
                     newProgressBar3.Value = vehicle.getFuel();
-                    logging("Ви заправились з каністри з бензином.");
-                    if (broke && vehicle.getWheels().getHP() != 0 && vehicle.getCorpus().getHP() != 0 && vehicle.getFuel() != 0) broke = false;
+                    logging("Ви купили Каністру з бензином. В подарунок ви отримали заправку бака!");
                 }
-                label10.Text = "Каністр:" + vehicle.getCorpus().getFuelTanks();                
+                catch (Exception exc)
+                {
+                    if (exc.Message == "noPlaceForTank")
+                        logging("У вас немає місця для ще однієї каністри");
+                }
+
             }
-            else logging("У вас немає каністр з бензином!");
+            else
+            {
+                if (vehicle.getCorpus().getFuelTanks() != 0)
+                {
+                    if (vehicle.getFuel() == vehicle.getMaxFuel())
+                    {
+                        logging("Паливний пак повний!");
+                        return;
+                    }
+                    else
+                    {
+                        vehicle.refuelFromTank();
+                        newProgressBar3.Value = vehicle.getFuel();
+                        logging("Ви заправились з каністри з бензином.");
+                        if (broke && vehicle.getWheels().getHP() != 0 && vehicle.getCorpus().getHP() != 0 && vehicle.getFuel() != 0) broke = false;
+                    }
+                    label10.Text = "Каністр:" + vehicle.getCorpus().getFuelTanks();
+                }
+                else logging("У вас немає каністр з бензином!");
+            }
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             start.closeAll();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            stance = !stance;
+            label11.Visible = stance;
+            label12.Visible = stance;
+            comboBox1.Visible = !stance;
+            if (stance)
+            {
+                button3.Text = "На дорогу";
+                label7.Text = vehicle.stop().ToString() + "km/h";
+                timer1.Stop();
+                runing = false;
+                pictureBox1.Image = Image.FromFile("pic\\gasStation.jpg");
+                pictureBox1.Enabled = false;
+            }
+            else
+            {
+                button3.Text = "На заправку";
+                pictureBox1.Image = Image.FromFile("pic\\giphy.gif");
+            }
+
+               
         }
 
     }
