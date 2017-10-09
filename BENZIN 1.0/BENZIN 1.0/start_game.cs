@@ -18,12 +18,18 @@ namespace BENZIN_1._0
         double cost_ben = 20;
         int kilk_kanistr=0;
         int kilk_instrumentiv=0;
+        int model1=0;
+        int kolesa1 = 0;
+        List<String> model = new List<String>() {"pic\\zaporojec-deloren.png", "pic\\deloren-deloren.png"};
+        List<String> kolesa_deloren = new List<String>() { "pic\\deloren-deloren.png", "pic\\deloren-zaporojec.png" };
+        List<String> kolesa_zapor = new List<String>() { "pic\\zaporojec-deloren.png", "pic\\zaporojec-zaporojec.png" };
         main_menu menu;
-
         public start_game(main_menu mn)
         {
             InitializeComponent();
             label4.Text = "0";
+            pictureBox2.Image = Image.FromFile("pic\\deloren-deloren.png");
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
             menu = mn;
         }
@@ -120,7 +126,7 @@ namespace BENZIN_1._0
                 String name_save = textBox1.Text.ToString();
                 String complexity = comboBox1.SelectedItem.ToString();
 
-                
+               
                 Wheels wh = new Wheels("deloren", 100, 1, 4, 100, 85);
                 Corpus corp = new Corpus("deloren", 100, 1, 6, kilk_kanistr,kilk_instrumentiv, 5, 5 );
                 vehicle = new Car(wh, corp, 177, 100, dengi);
@@ -181,6 +187,42 @@ namespace BENZIN_1._0
                 dengi += cost_rep;
                 label15.Text = kilk_instrumentiv.ToString();
                 label4.Text = (sloj - dengi).ToString();
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            if (++model1 > model.Count - 1)
+                model1 = 0;
+            pictureBox2.Image = Image.FromFile(model[model1]);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            if (model1 == 1) MessageBox.Show("Deloren");
+            if (model1 == 0) MessageBox.Show("zapor");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            if(model1 == 0)
+            {
+                if (++kolesa1 > kolesa_zapor.Count - 1)
+                    kolesa1 = 0;
+                pictureBox2.Image = Image.FromFile(kolesa_zapor[kolesa1]);
+                pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                if (kolesa1 == 0) MessageBox.Show("kolesa Deloren");
+                if (kolesa1 == 1) MessageBox.Show("kolesa zapor");
+            }
+            if (model1 == 1)
+            {
+                if (++kolesa1 > kolesa_deloren.Count - 1)
+                    kolesa1 = 0;
+                pictureBox2.Image = Image.FromFile(kolesa_deloren[kolesa1]);
+                pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                if (kolesa1 == 0) MessageBox.Show("kolesa Deloren");
+                if (kolesa1 == 1) MessageBox.Show("kolesa zapor");
             }
         }
     }

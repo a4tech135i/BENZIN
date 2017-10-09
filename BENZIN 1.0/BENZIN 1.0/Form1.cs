@@ -278,5 +278,10 @@ namespace BENZIN_1._0
             start.closeAll();
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
