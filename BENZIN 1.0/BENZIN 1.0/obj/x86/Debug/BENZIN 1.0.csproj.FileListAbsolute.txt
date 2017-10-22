@@ -26,3 +26,5 @@ C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN
 D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csprojResolveAssemblyReference.cache
 D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.main_menu.resources
 D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.start_game.resources
+D:\4 курс\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.exe
+D:\4 курс\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.pdb

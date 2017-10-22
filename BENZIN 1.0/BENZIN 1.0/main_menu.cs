@@ -32,6 +32,7 @@ namespace BENZIN_1._0
             start_game mf = new start_game(this);
             this.Hide();
             mf.ShowDialog();
+            ///sadasdas
         }
     }
 }
