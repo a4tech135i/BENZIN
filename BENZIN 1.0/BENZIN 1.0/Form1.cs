@@ -81,7 +81,14 @@ namespace BENZIN_1._0
 
             pictureBox1.Image = Image.FromFile("pic\\giphy.gif");
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.Image = Image.FromFile("pic\\deloren-deloren.png");
+            if (vehicle.getCorpus().getName() == "deloren" && vehicle.getWheels().getName() == "deloren")
+                pictureBox2.Image = Image.FromFile("pic\\deloren-deloren.png");
+            if (vehicle.getCorpus().getName() == "deloren" && vehicle.getWheels().getName() == "zaporojec")
+                pictureBox2.Image = Image.FromFile("pic\\deloren-zaporojec.png");
+            if (vehicle.getCorpus().getName() == "zaporojec" && vehicle.getWheels().getName() == "deloren")
+                pictureBox2.Image = Image.FromFile("pic\\zaporojec-deloren.png");
+            if (vehicle.getCorpus().getName() == "zaporojec" && vehicle.getWheels().getName() == "zaporojec")
+                pictureBox2.Image = Image.FromFile("pic\\zaporojec-zaporojec.png");
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
 
             comboBox1.Items.Add("Корпус");
@@ -99,18 +106,24 @@ namespace BENZIN_1._0
 
             pictureBox1.Enabled = false;
             
-
             timer1.Interval = 1000;
 
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (broke && vehicle.getFuel()!=0) logging("Ваша машина зламана і не може продовжувати рух.");
+            if (broke && vehicle.getFuel() != 0) logging("Ваша машина зламана і не може продовжувати рух.");
             else if (broke && vehicle.getFuel() == 0) logging("Ваш паливний бак порожній і ви не можете продовжувати рух.");
             else
             {
-
+                if (vehicle.getCorpus().getName() == "deloren" && vehicle.getWheels().getName() == "deloren")
+                    pictureBox2.Image = Image.FromFile("pic\\deloren-deloren.png");
+                if (vehicle.getCorpus().getName() == "deloren" && vehicle.getWheels().getName() == "zaporojec")
+                    pictureBox2.Image = Image.FromFile("pic\\deloren-zaporojec.png");
+                if (vehicle.getCorpus().getName() == "zaporojec" && vehicle.getWheels().getName() == "deloren")
+                    pictureBox2.Image = Image.FromFile("pic\\zaporojec-deloren.png");
+                if (vehicle.getCorpus().getName() == "zaporojec" && vehicle.getWheels().getName() == "zaporojec")
+                    pictureBox2.Image = Image.FromFile("pic\\zaporojec-zaporojec.png");
                 if (e.KeyCode == Keys.W)
                 {
                     if (!runing)
@@ -118,10 +131,10 @@ namespace BENZIN_1._0
                         runing = true;
                         timer1.Start();
                         pictureBox1.Enabled = true;
-                        
+
                     }
                     label7.Text = vehicle.speedUp().ToString() + "km/h";
-                    if(vehicle.getSpeed()!=vehicle.getMaxSpeed()) timer1.Interval -= 3;
+                    if (vehicle.getSpeed() != vehicle.getMaxSpeed()) timer1.Interval -= 3;
                 }
                 else if (e.KeyCode == Keys.S)
                 {
@@ -130,18 +143,15 @@ namespace BENZIN_1._0
                     {
                         timer1.Stop();
                         runing = false;
-                        pictureBox1.Enabled = false;                        
+                        pictureBox1.Enabled = false;
                     }
-                    else timer1.Interval += 3; 
+                    else timer1.Interval += 3;
                 }
-
-                else if(e.KeyCode == Keys.E)
+                else if (e.KeyCode == Keys.E)
                 {
                     //System.Media.SystemSounds.Beep.Play();
                 }
-                
             }
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -161,7 +171,14 @@ namespace BENZIN_1._0
                     logging("Ваші колеса зламались! Ваш шлях закінчується тут...");
                     playSound("sounds\\OHNO.wav");
                 }
-                pictureBox2.Image = Image.FromFile("pic\\deloren-deloren-broken.png");
+                if (vehicle.getCorpus().getName() == "deloren" && vehicle.getWheels().getName() == "deloren")
+                    pictureBox2.Image = Image.FromFile("pic\\deloren-deloren-broken.png");
+                if (vehicle.getCorpus().getName() == "deloren" && vehicle.getWheels().getName() == "zaporojec")
+                    pictureBox2.Image = Image.FromFile("pic\\deloren-zaporojec-broken.png");
+                if (vehicle.getCorpus().getName() == "zaporojec" && vehicle.getWheels().getName() == "deloren")
+                    pictureBox2.Image = Image.FromFile("pic\\zaporojec-deloren-broken.png");
+                if (vehicle.getCorpus().getName() == "zaporojec" && vehicle.getWheels().getName() == "zaporojec")
+                    pictureBox2.Image = Image.FromFile("pic\\zaporojec-zaporojec-broken.png");
                 pictureBox1.Enabled = false;
                 broke = true;
                 runing = false;
@@ -176,7 +193,14 @@ namespace BENZIN_1._0
                     logging("Ваші колеса зламались! Ваш шлях закінчується тут...");
                     playSound("sounds\\OHNO.wav");
                 }
-                pictureBox2.Image = Image.FromFile("pic\\deloren-deloren-broken.png");
+                if (vehicle.getCorpus().getName() == "deloren" && vehicle.getWheels().getName() == "deloren")
+                    pictureBox2.Image = Image.FromFile("pic\\deloren-deloren-broken.png");
+                if (vehicle.getCorpus().getName() == "deloren" && vehicle.getWheels().getName() == "zaporojec")
+                    pictureBox2.Image = Image.FromFile("pic\\deloren-zaporojec-broken.png");
+                if (vehicle.getCorpus().getName() == "zaporojec" && vehicle.getWheels().getName() == "deloren")
+                    pictureBox2.Image = Image.FromFile("pic\\zaporojec-deloren-broken.png");
+                if (vehicle.getCorpus().getName() == "zaporojec" && vehicle.getWheels().getName() == "zaporojec")
+                    pictureBox2.Image = Image.FromFile("pic\\zaporojec-zaporojec-broken.png");
                 pictureBox1.Enabled = false;
                 broke = true;
                 runing = false;

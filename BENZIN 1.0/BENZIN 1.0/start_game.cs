@@ -18,7 +18,9 @@ namespace BENZIN_1._0
         double cost_ben = 20;
         int kilk_kanistr=0;
         int kilk_instrumentiv=0;
-        int model1=0;
+        int maxkilk_kanistr=5;
+        int maxkilk_instrumentiv=5;
+        int model1=1;
         int kolesa1 = 0;
         List<String> model = new List<String>() {"pic\\zaporojec-deloren.png", "pic\\deloren-deloren.png"};
         List<String> kolesa_deloren = new List<String>() { "pic\\deloren-deloren.png", "pic\\deloren-zaporojec.png" };
@@ -125,15 +127,37 @@ namespace BENZIN_1._0
             {
                 String name_save = textBox1.Text.ToString();
                 String complexity = comboBox1.SelectedItem.ToString();
-
-               
-                Wheels wh = new Wheels("deloren", 100, 1, 4, 100, 85);
-                Corpus corp = new Corpus("deloren", 100, 1, 6, kilk_kanistr,kilk_instrumentiv, 5, 5 );
-                vehicle = new Car(wh, corp, 177, 100, dengi);
-
+                Wheels wh; Corpus corp;
+                if (kolesa1 == 1)
+                {
+                    wh = new Wheels("zaporojec", 70, 0, 4, 100, 85);
+                }
+                else
+                {
+                    wh = new Wheels("deloren", 100, 1, 6, 100, 85);
+                }
+                if(model1 == 1)
+                {
+                    corp = new Corpus("deloren", 100, 1, 6, 20, kilk_instrumentiv, maxkilk_kanistr, maxkilk_instrumentiv);
+                    //(mashin/hp/(zapor-0)/suprotiv)
+                    vehicle = new Car(wh, corp, 177, 100, dengi);
+                }
+                else
+                {
+                    corp = new Corpus("zaporojec", 70, 0, 4, kilk_kanistr, kilk_instrumentiv, maxkilk_kanistr, maxkilk_instrumentiv);
+                    vehicle = new Car(wh, corp, 120, 70, dengi);
+                    //(*/*/speed/maxFUEL/dengi)
+                }
                 Save save = new Save(name_save, complexity);
-
                 Form1 f1 = new Form1(save, vehicle, this);
+                if(model1==1)
+                    MessageBox.Show("deloren");
+                if (model1 == 0)
+                    MessageBox.Show("zapor");
+                if (kolesa1 == 1)
+                    MessageBox.Show("zapora kolesa");
+                if (kolesa1 == 0)
+                    MessageBox.Show("deloren kolesa");
                 this.Hide();
                 f1.ShowDialog();
             }
@@ -158,7 +182,7 @@ namespace BENZIN_1._0
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (dengi >= cost_ben)
+            if (dengi >= cost_ben && kilk_kanistr<maxkilk_kanistr)
             {
                 kilk_kanistr++;
                 label14.Text = kilk_kanistr.ToString();
@@ -169,7 +193,7 @@ namespace BENZIN_1._0
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (dengi >= cost_rep)
+            if (dengi >= cost_rep && kilk_instrumentiv < maxkilk_instrumentiv)
             {
                 kilk_instrumentiv++;
                 label15.Text = kilk_instrumentiv.ToString();
@@ -194,10 +218,32 @@ namespace BENZIN_1._0
         {
             if (++model1 > model.Count - 1)
                 model1 = 0;
-            pictureBox2.Image = Image.FromFile(model[model1]);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            if (model1 == 1) MessageBox.Show("Deloren");
-            if (model1 == 0) MessageBox.Show("zapor");
+                pictureBox2.Image = Image.FromFile(model[model1]);
+                pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                if (model1 == 1) 
+                { 
+                    MessageBox.Show("Deloren"); 
+                    maxkilk_instrumentiv = 5; 
+                    maxkilk_kanistr = 5; 
+                    kilk_instrumentiv = 0; 
+                    kilk_kanistr = 0;
+                    label14.Text = "0";
+                    label15.Text = "0";
+                    dengi = sloj;
+                    label4.Text = "0";
+                }
+                if (model1 == 0) 
+                { 
+                    MessageBox.Show("zapor"); 
+                    maxkilk_instrumentiv = 8;
+                    maxkilk_kanistr = 8; 
+                    kilk_instrumentiv = 0; 
+                    kilk_kanistr = 0;
+                    label14.Text = "0";
+                    label15.Text = "0";
+                    dengi = sloj;
+                    label4.Text = "0";
+                }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
