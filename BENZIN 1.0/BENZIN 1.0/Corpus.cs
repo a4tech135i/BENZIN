@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BENZIN_1._0
 {
+    [Serializable]
     public class Corpus:CarComponent
     {
         private int maxFuelTanks;

@@ -9,6 +9,7 @@ using System.Drawing;
 
 namespace BENZIN_1._0
 {
+    [Serializable]
     class NewProgressBar: ProgressBar
     {
         public NewProgressBar()

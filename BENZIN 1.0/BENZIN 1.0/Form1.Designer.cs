@@ -44,13 +44,16 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.newProgressBar3 = new BENZIN_1._0.NewProgressBar();
-            this.newProgressBar2 = new BENZIN_1._0.NewProgressBar();
-            this.newProgressBar1 = new BENZIN_1._0.NewProgressBar();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.newProgressBar3 = new BENZIN_1._0.NewProgressBar();
+            this.newProgressBar2 = new BENZIN_1._0.NewProgressBar();
+            this.newProgressBar1 = new BENZIN_1._0.NewProgressBar();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -130,6 +133,7 @@
             this.button3.TabIndex = 14;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label7
             // 
@@ -199,27 +203,6 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "label10";
             // 
-            // newProgressBar3
-            // 
-            this.newProgressBar3.Location = new System.Drawing.Point(836, 240);
-            this.newProgressBar3.Name = "newProgressBar3";
-            this.newProgressBar3.Size = new System.Drawing.Size(142, 23);
-            this.newProgressBar3.TabIndex = 20;
-            // 
-            // newProgressBar2
-            // 
-            this.newProgressBar2.Location = new System.Drawing.Point(836, 211);
-            this.newProgressBar2.Name = "newProgressBar2";
-            this.newProgressBar2.Size = new System.Drawing.Size(142, 23);
-            this.newProgressBar2.TabIndex = 19;
-            // 
-            // newProgressBar1
-            // 
-            this.newProgressBar1.Location = new System.Drawing.Point(836, 181);
-            this.newProgressBar1.Name = "newProgressBar1";
-            this.newProgressBar1.Size = new System.Drawing.Size(142, 23);
-            this.newProgressBar1.TabIndex = 18;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.DarkOrange;
@@ -265,12 +248,71 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.ForeColor = System.Drawing.Color.Coral;
+            this.label11.Location = new System.Drawing.Point(794, 359);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 16);
+            this.label11.TabIndex = 26;
+            this.label11.Text = "10$";
+            this.label11.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.ForeColor = System.Drawing.Color.Coral;
+            this.label12.Location = new System.Drawing.Point(794, 404);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(29, 16);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "10$";
+            this.label12.Visible = false;
+            // 
+            // newProgressBar3
+            // 
+            this.newProgressBar3.Location = new System.Drawing.Point(836, 240);
+            this.newProgressBar3.Name = "newProgressBar3";
+            this.newProgressBar3.Size = new System.Drawing.Size(142, 23);
+            this.newProgressBar3.TabIndex = 20;
+            // 
+            // newProgressBar2
+            // 
+            this.newProgressBar2.Location = new System.Drawing.Point(836, 211);
+            this.newProgressBar2.Name = "newProgressBar2";
+            this.newProgressBar2.Size = new System.Drawing.Size(142, 23);
+            this.newProgressBar2.TabIndex = 19;
+            // 
+            // newProgressBar1
+            // 
+            this.newProgressBar1.Location = new System.Drawing.Point(836, 181);
+            this.newProgressBar1.Name = "newProgressBar1";
+            this.newProgressBar1.Size = new System.Drawing.Size(142, 23);
+            this.newProgressBar1.TabIndex = 18;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DarkOrange;
+            this.button4.Location = new System.Drawing.Point(850, 397);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(125, 23);
+            this.button4.TabIndex = 28;
+            this.button4.Text = "Save";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(18)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(997, 622);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBox1);
@@ -329,6 +371,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button4;
     }
 }
 
