@@ -19,9 +19,7 @@ namespace BENZIN_1._0
         public Car vehicle;
         public Save save;
         bool runing,broke;
-        main_menu menu;
         start_game start;
-        main_menu start1;
         bool stance;
         public Form1(Save save1, Car vehicle1, start_game strt)
         {
@@ -251,47 +249,6 @@ namespace BENZIN_1._0
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*if (vehicle.getCorpus().getRepairKits() != 0)
-            {
-                switch (comboBox1.SelectedIndex)
-                {
-                    case 0:
-                        if (vehicle.getCorpus().getHP() == 100)
-                        {
-                            logging("Корпус не потребує ремонту!");
-                            return;
-                        }
-                        else
-                        {
-                            vehicle.getCorpus().repair(20);
-                            vehicle.getCorpus().useRepairKit();
-                            newProgressBar1.Value = vehicle.getCorpus().getHP();
-                            logging("Ви відремонтували корпус за допомогою ремонтного набору");
-                            if (broke && vehicle.getCorpus().getHP() == 0 && vehicle.getWheels().getHP() != 0 && vehicle.getFuel() != 0) broke = false;
-                            else if (broke && vehicle.getCorpus().getRepairKits() == 0) logging("Ви використали всі ремонтні набори! Ваш шлях закінчується тут...");
-                        }
-                        break;
-                    case 1:
-                        if (vehicle.getWheels().getHP() == 100)
-                        {
-                            logging("Колеса не потребують ремонту!");
-                            return;
-                        }
-                        else
-                        {
-                            vehicle.getWheels().repair(20);
-                            vehicle.getCorpus().useRepairKit();
-                            newProgressBar2.Value = vehicle.getWheels().getHP();
-                            logging("Ви відремонтували колеса за допомогою ремонтного набору");
-                            if (broke && vehicle.getWheels().getHP() != 0 && vehicle.getCorpus().getHP() != 0 && vehicle.getFuel()!=0) broke = false;
-                            else if (broke && vehicle.getCorpus().getRepairKits() == 0) logging("Ви використали всі ремонтні набори! Ваш шлях закінчується тут...");
-                        }
-                        break;
-                }
-                label9.Text = "Ремонтних наборів:" + vehicle.getCorpus().getRepairKits();               
-                
-            }
-            else logging("У вас немає ремонтних наборів!");*/
             if (stance)
             {
                 try
@@ -359,24 +316,6 @@ namespace BENZIN_1._0
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*if (vehicle.getCorpus().getFuelTanks() != 0)
-            {
-                if (vehicle.getFuel() == vehicle.getMaxFuel())
-                {
-                    logging("Паливний пак повний!");
-                    return;
-                }
-                else
-                {
-                    vehicle.refuelFromTank();
-                    newProgressBar3.Value = vehicle.getFuel();
-                    logging("Ви заправились з каністри з бензином.");
-                    if (broke && vehicle.getWheels().getHP() != 0 && vehicle.getCorpus().getHP() != 0 && vehicle.getFuel() != 0) broke = false;
-                }
-                label10.Text = "Каністр:" + vehicle.getCorpus().getFuelTanks();                
-            }
-            else logging("У вас немає каністр з бензином!");*/
-            
             if (stance)
             {
                 try

@@ -139,25 +139,14 @@ namespace BENZIN_1._0
                 if(model1 == 1)
                 {
                     corp = new Corpus("deloren", 100, 1, 6, kilk_kanistr, kilk_instrumentiv, maxkilk_kanistr, maxkilk_instrumentiv);
-                    //(mashin/hp/(zapor-0)/suprotiv)
                     vehicle = new Car(wh, corp, 177, 100, dengi);
                 }
                 else
                 {
                     corp = new Corpus("zaporojec", 100, 0, -16, kilk_kanistr, kilk_instrumentiv, maxkilk_kanistr, maxkilk_instrumentiv);
                     vehicle = new Car(wh, corp, 120, 70, dengi);
-                    //(*/*/speed/maxFUEL/dengi)
                 }
                 Save save = new Save(name_save, complexity);
-                
-                /*if(model1==1)
-                    MessageBox.Show("deloren");
-                if (model1 == 0)
-                    MessageBox.Show("zapor");
-                if (kolesa1 == 1)
-                    MessageBox.Show("zapora kolesa");
-                if (kolesa1 == 0)
-                    MessageBox.Show("deloren kolesa");*/
                 Form1 f1 = new Form1(save, vehicle, this);
                 this.Hide();
                 f1.ShowDialog();
