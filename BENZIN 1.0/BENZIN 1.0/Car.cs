@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BENZIN_1._0
 {
+    [Serializable]
     public class Car
     {                
         private Wheels wheels;
@@ -162,6 +163,11 @@ namespace BENZIN_1._0
                 corpus.addRepairKit();
             }
             else throw new Exception("noPlaceForKit");
+        }
+
+        public void emergency()
+        {
+            money -= 25;
         }
 
     }

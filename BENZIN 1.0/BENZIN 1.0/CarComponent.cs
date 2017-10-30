@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BENZIN_1._0
 {
+    [Serializable]
     abstract public class CarComponent
     {
         protected string name;

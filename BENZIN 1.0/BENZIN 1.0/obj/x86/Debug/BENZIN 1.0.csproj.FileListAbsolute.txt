@@ -22,7 +22,11 @@ C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN
 C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csproj.GenerateResource.Cache
 C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.main_menu.resources
 C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.start_game.resources
-C:\Documents\Bilovol PR-141\KP\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csprojResolveAssemblyReference.cache
-D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.csprojResolveAssemblyReference.cache
 D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.main_menu.resources
 D:\Vicktor\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN_1._0.start_game.resources
+C:\Documents\Bilovol PR-141\BENZIN-774b5c7a7cda8bf05b9d6bee16afce49f8e4a5fb\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.exe
+C:\Documents\Bilovol PR-141\BENZIN-774b5c7a7cda8bf05b9d6bee16afce49f8e4a5fb\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.pdb
+C:\Documents\Bilovol PR-141\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.exe
+C:\Documents\Bilovol PR-141\BENZIN\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.pdb
+D:\Vicktor\-=Navchannya=-\4 kurs\BENZIN-master\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.exe
+D:\Vicktor\-=Navchannya=-\4 kurs\BENZIN-master\BENZIN 1.0\BENZIN 1.0\obj\x86\Debug\BENZIN 1.0.pdb
