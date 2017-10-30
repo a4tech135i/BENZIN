@@ -45,6 +45,7 @@ namespace BENZIN_1._0
             //Wheels wh = new Wheels("deloren", 100, 1, 4, 100, 85);
             //Corpus corp = new Corpus("deloren", 100, 1, 6, 5, 5);
             //vehicle = new Car(wh,corp,177,100,100);
+
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
             stance = false;
             menu = m;
@@ -116,8 +117,8 @@ namespace BENZIN_1._0
             newProgressBar2.Value = vehicle.getWheels().getHP();
             newProgressBar3.Value = vehicle.getFuel();
 
-            newProgressBar1.Maximum = vehicle.getCorpus().getHP();
-            newProgressBar2.Maximum = vehicle.getWheels().getHP();
+            newProgressBar1.Maximum = 100;
+            newProgressBar2.Maximum = 100;
             newProgressBar3.Maximum = vehicle.getMaxFuel();
 
             pictureBox1.Enabled = false;
@@ -401,6 +402,11 @@ namespace BENZIN_1._0
         private void button4_Click(object sender, EventArgs e)
         {
             Save_game a = new Save_game(vehicle,save);
+            if (a.getCar().getFuel() == 0 || a.getCar().getCorpus().getHP() == 0 || a.getCar().getWheels().getHP() == 0)
+            {
+                MessageBox.Show("Ви не можете зберегти гру, якщо ваша машина не може рухатись!");
+                return;
+            }
             FileStream fs = new FileStream(a.getS().getName() + ".data", FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
             BinaryFormatter bf = new BinaryFormatter();
             bf.Serialize(fs, a);
