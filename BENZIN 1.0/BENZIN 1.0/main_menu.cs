@@ -18,7 +18,7 @@ namespace BENZIN_1._0
         {
             InitializeComponent();
             button2.Click += button2_Click;
-            openFileDialog1.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            openFileDialog1.Filter = "All files(*.*)|*.*";
         }
 
         private void main_menu_Load(object sender, EventArgs e)
