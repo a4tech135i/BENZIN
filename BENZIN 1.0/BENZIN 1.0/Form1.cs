@@ -28,9 +28,6 @@ namespace BENZIN_1._0
             save = save1;
             vehicle = vehicle1;
             this.Text = "Назва сейву: " + save.getName() + " Складність: " + save.getComplexity();
-            //Wheels wh = new Wheels("deloren", 100, 1, 4, 100, 85);
-            //Corpus corp = new Corpus("deloren", 100, 1, 6, 5, 5);
-            //vehicle = new Car(wh,corp,177,100,100);
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
             start = strt;
             menu = null;
@@ -42,9 +39,6 @@ namespace BENZIN_1._0
             save = save1;
             vehicle = vehicle1;
             this.Text = "Назва сейву: " + save.getName() + " Складність: " + save.getComplexity();
-            //Wheels wh = new Wheels("deloren", 100, 1, 4, 100, 85);
-            //Corpus corp = new Corpus("deloren", 100, 1, 6, 5, 5);
-            //vehicle = new Car(wh,corp,177,100,100);
 
             comboBox1.KeyPress += (sndr, eva) => eva.Handled = true;
             stance = false;
@@ -165,10 +159,6 @@ namespace BENZIN_1._0
                             pictureBox1.Enabled = false;
                         }
                         else timer1.Interval += 3;
-                    }
-                    else if (e.KeyCode == Keys.E)
-                    {
-                        //System.Media.SystemSounds.Beep.Play();
                     }
                 }
             }
