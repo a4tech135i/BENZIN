@@ -20,7 +20,10 @@ namespace BENZIN_1._0
             fuelSpend = fs;
             resistance = res;
         }
-
+        public int getRessistance()
+        {
+            return resistance;
+        }
         public string getName()
         {
             return name;

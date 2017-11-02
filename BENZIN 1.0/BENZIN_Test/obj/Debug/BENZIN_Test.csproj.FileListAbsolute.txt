@@ -1,0 +1,4 @@
+C:\Users\kuchm\OneDrive\Documents\COMDEV\BENZIN\BENZIN 1.0\BENZIN_Test\obj\Debug\BENZIN_Test.csprojResolveAssemblyReference.cache
+C:\Users\kuchm\OneDrive\Documents\COMDEV\BENZIN\BENZIN 1.0\BENZIN_Test\obj\Debug\BENZIN_Test.csproj.CoreCompileInputs.cache
+C:\Users\kuchm\OneDrive\Documents\BENZIN 1.0\BENZIN_Test\obj\Debug\BENZIN_Test.csprojResolveAssemblyReference.cache
+C:\Users\kuchm\OneDrive\Documents\BENZIN 1.0\BENZIN_Test\obj\Debug\BENZIN_Test.csproj.CoreCompileInputs.cache
